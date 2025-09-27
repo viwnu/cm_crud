@@ -23,6 +23,12 @@
       ],
       "@app/api-doc/*": [
         "libs/shared/api-doc/src/*"
+      ],
+      "@app/auth": [
+        "libs/shared/auth/src"
+      ],
+      "@app/auth/*": [
+        "libs/shared/auth/src/*"
       ]
     }
   }

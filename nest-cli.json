@@ -15,6 +15,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/shared/api-doc/tsconfig.lib.json"
       }
+    },
+    "auth": {
+      "type": "library",
+      "root": "libs/shared/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/auth/tsconfig.lib.json"
+      }
     }
   }
 }
