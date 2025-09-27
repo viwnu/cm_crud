@@ -27,6 +27,8 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^11.2.0",
     "@nestjs/typeorm": "^11.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
@@ -77,7 +79,9 @@
     ],
     "moduleNameMapper": {
       "^@app/api-doc(|/.*)$": "<rootDir>/libs/shared/api-doc/src/$1",
-      "^@app/auth(|/.*)$": "<rootDir>/libs/shared/auth/src/$1"
+      "^@app/auth(|/.*)$": "<rootDir>/libs/shared/auth/src/$1",
+      "^@app/serializer(|/.*)$": "<rootDir>/libs/shared/serializer/src/$1",
+      "^@app/decorators(|/.*)$": "<rootDir>/libs/shared/decorators/src/$1"
     }
   }
 }

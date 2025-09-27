@@ -24,6 +24,24 @@
       "compilerOptions": {
         "tsConfigPath": "libs/shared/auth/tsconfig.lib.json"
       }
+    },
+    "serializer": {
+      "type": "library",
+      "root": "libs/shared/serializer",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/serializer/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/serializer/tsconfig.lib.json"
+      }
+    },
+    "decorators": {
+      "type": "library",
+      "root": "libs/shared/decorators",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/decorators/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/decorators/tsconfig.lib.json"
+      }
     }
   }
 }

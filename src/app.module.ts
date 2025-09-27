@@ -5,6 +5,7 @@ import { ArticlesModule } from './features/articles/articles.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './db';
+import { ManagersModule } from './features/managers/managers.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TypeOrmConfigService } from './db';
     }),
     TypeOrmModule.forRootAsync(TypeOrmConfigService()),
     ArticlesModule,
+    ManagersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

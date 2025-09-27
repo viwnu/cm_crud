@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { ManagerEntity } from './managers';
 
 // Структура "Статьи" должна включать: название, описание, дату публикации, автора.
 
@@ -16,5 +17,6 @@ export class ArticleEntity {
   @CreateDateColumn()
   created: Date;
 
-  @ManyToOne()
+  @ManyToOne(() => ManagerEntity, 'manager')
+  manager: ManagerEntity;
 }

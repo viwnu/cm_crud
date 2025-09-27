@@ -1,4 +1,6 @@
-import { TaskEntity } from './task';
+import { ArticleEntity } from './article';
+import { ManagerEntity } from './managers';
 
-export * from './task';
-export const ENTITIES = [TaskEntity];
+export * from './article';
+export * from './managers';
+export const ENTITIES = [ArticleEntity, ManagerEntity];

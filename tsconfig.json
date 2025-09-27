@@ -29,6 +29,18 @@
       ],
       "@app/auth/*": [
         "libs/shared/auth/src/*"
+      ],
+      "@app/serializer": [
+        "libs/shared/serializer/src"
+      ],
+      "@app/serializer/*": [
+        "libs/shared/serializer/src/*"
+      ],
+      "@app/decorators": [
+        "libs/shared/decorators/src"
+      ],
+      "@app/decorators/*": [
+        "libs/shared/decorators/src/*"
       ]
     }
   }

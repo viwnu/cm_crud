@@ -14,6 +14,10 @@
     "@app/api-doc/(.*)": "<rootDir>/../libs/shared/api-doc/src/$1",
     "@app/api-doc": "<rootDir>/../libs/shared/api-doc/src",
     "@app/auth/(.*)": "<rootDir>/../libs/shared/auth/src/$1",
-    "@app/auth": "<rootDir>/../libs/shared/auth/src"
+    "@app/auth": "<rootDir>/../libs/shared/auth/src",
+    "@app/serializer/(.*)": "<rootDir>/../libs/shared/serializer/src/$1",
+    "@app/serializer": "<rootDir>/../libs/shared/serializer/src",
+    "@app/decorators/(.*)": "<rootDir>/../libs/shared/decorators/src/$1",
+    "@app/decorators": "<rootDir>/../libs/shared/decorators/src"
   }
 }
