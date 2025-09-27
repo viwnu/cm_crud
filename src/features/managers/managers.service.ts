@@ -18,11 +18,11 @@ export class ManagersService {
     const existing = await this.findOneByEmail(createUserDto.email);
     if (existing) throw new ForbiddenException('User already exist');
     const userIdentity = await this.authService.signup(createUserDto);
-    await this.managerRepository.save(plainToInstance(ManagerEntity, { ...createUserDto, userIdentity }));
+    await this.managerRepository.save({ ...createUserDto, userIdentity });
   }
 
   async update(user: ManagerInternalView, updateUserDto: UpdateManagerDto): Promise<void> {
-    await this.managerRepository.save(plainToInstance(ManagerEntity, { ...user, ...updateUserDto }));
+    await this.managerRepository.save({ ...user, ...updateUserDto });
   }
 
   async findOneByEmail(email: string): Promise<ManagerInternalView> {

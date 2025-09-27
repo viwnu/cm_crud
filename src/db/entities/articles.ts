@@ -8,15 +8,18 @@ export class ArticleEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('varchar', { length: 40 })
+  @Column('varchar', { length: 256 })
   title: string;
 
-  @Column('varchar', { length: 40 })
-  description: boolean;
+  @Column('varchar', { length: 1024 })
+  description: string;
+
+  @Column('text')
+  content: string;
 
   @CreateDateColumn()
   created: Date;
 
-  @ManyToOne(() => ManagerEntity, 'manager')
-  manager: ManagerEntity;
+  @ManyToOne(() => ManagerEntity, 'articles')
+  author: ManagerEntity;
 }

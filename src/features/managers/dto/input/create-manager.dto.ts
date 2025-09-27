@@ -1,8 +1,9 @@
-import { ApiProperty, PickType } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { IsDefined, IsEmail, IsString } from 'class-validator';
+import { UserIdentityEntity } from '@app/auth/db';
 import { ManagerEntity } from 'src/db/entities';
 
-export class CreateManagerDto extends PickType(ManagerEntity, ['name']) {
+export class CreateManagerDto implements Pick<ManagerEntity, 'name'>, Pick<UserIdentityEntity, 'email' | 'password'> {
   @ApiProperty({ type: 'string', example: 'Steven', description: 'The name of manager' })
   @IsDefined()
   @IsString()

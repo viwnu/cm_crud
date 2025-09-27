@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Patch, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { ApiDoc } from '@app/decorators/api-doc';
-import { ApiDocExceptions } from '@app/decorators/api-doc/reponses';
+import { ApiDoc } from '@app/api-doc';
+import { ApiDocExceptions } from '@app/api-doc/responses';
 import { RequestProp } from '@app/decorators/param';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard, JwtAuthGuard } from './guards';

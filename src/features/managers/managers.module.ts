@@ -9,5 +9,6 @@ import { AuthModule } from '@app/auth';
   imports: [TypeOrmModule.forFeature([ManagerEntity]), AuthModule],
   controllers: [ManagersController],
   providers: [ManagersService],
+  exports: [ManagersService],
 })
 export class ManagersModule {}

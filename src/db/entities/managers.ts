@@ -1,6 +1,6 @@
 import { UserIdentityEntity } from '@app/auth/db';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { ArticleEntity } from './article';
+import { ArticleEntity } from './articles';
 
 @Entity('managers')
 export class ManagerEntity {
@@ -14,6 +14,6 @@ export class ManagerEntity {
   @JoinColumn()
   userIdentity: UserIdentityEntity;
 
-  @OneToMany(() => ArticleEntity, 'manager')
+  @OneToMany(() => ArticleEntity, 'author')
   articles: ArticleEntity[];
 }

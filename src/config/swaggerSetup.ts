@@ -3,10 +3,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const swaggerSetup = (app: INestApplication) => {
   const config = new DocumentBuilder()
-    .setTitle('REST API Chat')
-    .setDescription('The REST API Chat API description')
+    .setTitle('Content management CRUD API')
+    .setDescription('The REST API for management content and view of articles')
     .setVersion('1.0')
-    .addTag('RCh')
+    .addTag('CM_CRUD')
     .addBearerAuth()
     .build();
 

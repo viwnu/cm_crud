@@ -13,15 +13,18 @@ export class ManagerGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     return await this.validateRequestManager(request);
   }
-  async validateRequestManager(request: RequestWithProp<{ [REQUEST_PROP_NAMES.MANAGER]: UserIdentityDTO }>): Promise<boolean> {
-    const foundedUser = await this.managersService.findOneByEmail(request.manager.email);
+  async validateRequestManager(request: RequestWithProp<{ [REQUEST_PROP_NAMES.USER]: UserIdentityDTO }>): Promise<boolean> {
+    const foundedUser = await this.managersService.findOneByEmail(request.user.email);
     if (!foundedUser) return false;
     this.setRequestUser(request, foundedUser);
     return true;
   }
 
   setRequestUser(
-    request: RequestWithProp<{ [REQUEST_PROP_NAMES.MANAGER]: Omit<UserIdentityDTO, 'email'> }>,
+    request: RequestWithProp<{
+      [REQUEST_PROP_NAMES.USER]: UserIdentityDTO;
+      [REQUEST_PROP_NAMES.MANAGER]?: ManagerInternalView;
+    }>,
     manager: ManagerInternalView,
   ): void {
     request.manager = manager;

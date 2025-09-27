@@ -1,6 +1,6 @@
-import { ArticleEntity } from './article';
+import { ArticleEntity } from './articles';
 import { ManagerEntity } from './managers';
 
-export * from './article';
+export * from './articles';
 export * from './managers';
 export const ENTITIES = [ArticleEntity, ManagerEntity];
