@@ -19,8 +19,6 @@ const Config: DataSourceOptions = {
   migrations: MIGRATIONS,
 };
 
-console.log(process.env.NODE_ENV);
-
 export const AppDataSource: DataSource = new DataSource(Config);
 
 export const getDataSource = async (): Promise<DataSource> => {

@@ -19,14 +19,15 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "cross-env NODE_ENV=testing jest --config ./test/jest-e2e.json --testPathPattern / --runInBand",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/db/data-source.ts",
-    "db:create-dev": "cross-env NODE_ENV=development yarn typeorm migration:generate",
-    "db:create-prod": "cross-env NODE_ENV=production yarn typeorm migration:generate",
+    "db:create": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli migration:create",
+    "db:generate-dev": "cross-env NODE_ENV=development yarn typeorm migration:generate",
+    "db:generate-prod": "cross-env NODE_ENV=production yarn typeorm migration:generate",
     "db:migrate-dev": "cross-env NODE_ENV=development yarn typeorm migration:run",
     "db:migrate-prod": "cross-env NODE_ENV=production yarn typeorm migration:run",
     "db:drop-dev": "cross-env NODE_ENV=development yarn typeorm schema:drop",
     "db:drop-prod": "cross-env NODE_ENV=production yarn typeorm schema:drop",
-    "db:seed-dev": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/db/data-source.seed.ts migration:run",
-    "db:seed-prod": "cross-env NODE_ENV=production ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/db/data-source.seed.ts migration:run"
+    "db:seed-dev": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/db/data-source-seed.ts migration:run",
+    "db:seed-prod": "cross-env NODE_ENV=production ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d ./src/db/data-source-seed.ts migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
