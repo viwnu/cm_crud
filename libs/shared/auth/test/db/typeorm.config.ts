@@ -5,11 +5,11 @@ import { UserIdentityEntity } from '../../src/db/user.identity.entity';
 export const TypeOrmConfigService = (): TypeOrmModuleAsyncOptions => ({
   useFactory: (configService: ConfigService) => ({
     type: 'postgres',
-    host: configService.get('PS_HOST'),
-    port: Number(configService.get('PS_PORT')),
-    username: configService.get('PS_USER'),
-    password: configService.get('PS_PASSWORD'),
-    database: configService.get('PS_DB_NAME'),
+    host: configService.get('POSTGRES_HOST'),
+    port: Number(configService.get('POSTGRES_PORT')),
+    username: configService.get('POSTGRES_USER'),
+    password: configService.get('POSTGRES_PASSWORD'),
+    database: configService.get('POSTGRES_DB'),
     entities: [UserIdentityEntity],
     autoLoadEntities: Boolean(configService.get('SYNC_DB') === 'true') || false,
     synchronize: Boolean(configService.get('SYNC_DB') === 'true') || false,
