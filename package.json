@@ -96,6 +96,7 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/src/$1",
       "^@app/api-doc(|/.*)$": "<rootDir>/libs/shared/api-doc/src/$1",
       "^@app/auth(|/.*)$": "<rootDir>/libs/shared/auth/src/$1",
       "^@app/serializer(|/.*)$": "<rootDir>/libs/shared/serializer/src/$1",
