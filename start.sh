@@ -1,4 +1,4 @@
 #!/bin/sh
-npm run db:migrate-prod
-npm run db:seed-prod
-npm run start:prod
+yarn db:migrate-prod
+yarn db:seed-prod
+yarn start:prod

@@ -43,6 +43,5 @@
         "libs/shared/decorators/src/*"
       ]
     }
-  },
-  "include": ["./**/*", "src/db/*"]
+  }
 }
