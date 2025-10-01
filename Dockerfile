@@ -8,5 +8,6 @@ RUN yarn install
 COPY . .
 
 RUN yarn build
+RUN ./node_modules/.bin/tsc
 
 CMD ["sh", "./start.sh"]
