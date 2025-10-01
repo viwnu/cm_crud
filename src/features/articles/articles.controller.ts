@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query, UseInterceptors } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ArticlesService } from './articles.service';
 import { ApiDoc } from '@app/api-doc';
@@ -10,6 +10,7 @@ import { ManagerInternalView } from '../managers/dto/view';
 import { CreateArticleDTO, FindArticlesDto, UpdateArticleDTO } from './dto/input';
 import { ArticleFindAllResponseDTO } from './dto/view';
 import { SerializeView } from '@app/serializer';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @ApiTags('Articles')
 @Controller('articles')
@@ -41,7 +42,8 @@ export class ArticlesController {
     ],
   })
   @SerializeView(ArticleFindAllResponseDTO)
-  @Get() // add cache
+  @UseInterceptors(CacheInterceptor)
+  @Get()
   async findAll(@Query() dto: FindArticlesDto) {
     return await this.articlesService.findAll(dto);
   }
