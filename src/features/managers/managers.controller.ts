@@ -18,9 +18,8 @@ export class ManagersController {
   constructor(private readonly managersService: ManagersService) {}
 
   @ApiDoc({
-    title: 'Register Manager',
-    response: { status: 201, description: 'Empty response' },
-    exceptions: [ApiDocExceptions.forbidden, ApiDocExceptions.badRequest],
+    title: { summary: 'Register Manager' },
+    responses: [{ status: 201, description: 'Empty response' }, ApiDocExceptions.forbidden, ApiDocExceptions.badRequest],
   })
   @Post('signup')
   async signup(@Body() createManagerDto: CreateManagerDto): Promise<void> {
@@ -28,10 +27,12 @@ export class ManagersController {
   }
 
   @ApiDoc({
-    title: 'Show Manager info for self',
-    response: { status: 200, type: ManagerSelfView, description: 'Manager info for self' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.forbidden],
-    auth: 'bearer',
+    title: { summary: 'Show Manager info for self' },
+    responses: [
+      { status: 200, type: ManagerSelfView, description: 'Manager info for self' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+    ],
   })
   @SerializeView(ManagerSelfView)
   @UseGuards(JwtAuthGuard, ManagerGuard)
@@ -41,10 +42,13 @@ export class ManagersController {
   }
 
   @ApiDoc({
-    title: 'Update Manager',
-    response: { status: 200, description: 'Empty response' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.forbidden, ApiDocExceptions.badRequest],
-    auth: 'bearer',
+    title: { summary: 'Update Manager' },
+    responses: [
+      { status: 200, description: 'Empty response' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+      ApiDocExceptions.badRequest,
+    ],
   })
   @UseGuards(JwtAuthGuard, ManagerGuard)
   @Patch()

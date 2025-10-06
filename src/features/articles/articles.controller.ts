@@ -18,10 +18,13 @@ export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
   @ApiDoc({
-    title: 'Add Article',
-    response: { status: 201, description: 'Empty response' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.forbidden, ApiDocExceptions.badRequest],
-    auth: 'bearer',
+    title: { summary: 'Add Article' },
+    responses: [
+      { status: 201, description: 'Empty response' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+      ApiDocExceptions.badRequest,
+    ],
   })
   @UseGuards(JwtAuthGuard, ManagerGuard)
   @Post()
@@ -30,10 +33,12 @@ export class ArticlesController {
   }
 
   @ApiDoc({
-    title: 'Get all articles by passed filters',
-    response: { status: 200, type: [ArticleFindAllResponseDTO], description: 'Array of articles and total number of them' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.forbidden],
-    auth: 'bearer',
+    title: { summary: 'Get all articles by passed filters' },
+    responses: [
+      { status: 200, type: [ArticleFindAllResponseDTO], description: 'Array of articles and total number of them' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+    ],
     queries: [
       { name: 'limit', required: false, example: 10 },
       { name: 'page', required: false, example: 0 },
@@ -48,11 +53,31 @@ export class ArticlesController {
     return await this.articlesService.findAll(dto);
   }
 
+  @ApiDoc({
+    title: { summary: 'Update Article' },
+    responses: [
+      { status: 200, description: 'Empty response' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+      ApiDocExceptions.notFound,
+    ],
+  })
+  @UseGuards(JwtAuthGuard, ManagerGuard)
   @Patch(':articleId')
   update(@Param('articleId') articleId: string, @Body() updateArticleDto: UpdateArticleDTO) {
     return this.articlesService.update(articleId, updateArticleDto);
   }
 
+  @ApiDoc({
+    title: { summary: 'Delete Article' },
+    responses: [
+      { status: 200, description: 'Empty response' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.forbidden,
+      ApiDocExceptions.notFound,
+    ],
+  })
+  @UseGuards(JwtAuthGuard, ManagerGuard)
   @Delete(':articleId')
   remove(@Param('articleId') articleId: string) {
     return this.articlesService.remove(articleId);

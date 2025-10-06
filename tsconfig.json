@@ -41,6 +41,12 @@
       ],
       "@app/decorators/*": [
         "libs/shared/decorators/src/*"
+      ],
+      "@app/logger": [
+        "libs/shared/logger/src"
+      ],
+      "@app/logger/*": [
+        "libs/shared/logger/src/*"
       ]
     }
   }

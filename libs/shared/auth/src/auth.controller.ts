@@ -15,10 +15,13 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiDoc({
-    title: 'Login User and return refresh_token',
-    response: { status: 201, type: RefreshToken, description: 'refresh_token' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.badRequest],
-    requestBody: { type: LoginInputModel, description: 'login data' },
+    title: { summary: 'Login User and return refresh_token' },
+    responses: [
+      { status: 201, type: RefreshToken, description: 'refresh_token' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.badRequest,
+    ],
+    body: { type: LoginInputModel, description: 'login data' },
   })
   @UseGuards(LocalAuthGuard)
   @UseInterceptors(SetAccessToken)
@@ -28,9 +31,12 @@ export class AuthController {
   }
 
   @ApiDoc({
-    title: 'Refresh and return refresh_token',
-    response: { status: 201, type: RefreshToken, description: 'refresh_token' },
-    exceptions: [ApiDocExceptions.unauthorized, ApiDocExceptions.badRequest],
+    title: { summary: 'Refresh and return refresh_token' },
+    responses: [
+      { status: 201, type: RefreshToken, description: 'refresh_token' },
+      ApiDocExceptions.unauthorized,
+      ApiDocExceptions.badRequest,
+    ],
   })
   @UseInterceptors(SetAccessToken)
   @Post('refresh')
@@ -39,9 +45,8 @@ export class AuthController {
   }
 
   @ApiDoc({
-    title: 'Logout User clear cookies delete refreshToken',
-    response: { status: 200, description: 'Empty response' },
-    exceptions: [ApiDocExceptions.unauthorized],
+    title: { summary: 'Logout User clear cookies delete refreshToken' },
+    responses: [{ status: 200, description: 'Empty response' }, ApiDocExceptions.unauthorized],
     auth: 'bearer',
   })
   @UseGuards(JwtAuthGuard)
@@ -52,9 +57,8 @@ export class AuthController {
   }
 
   @ApiDoc({
-    title: 'Delete User',
-    response: { status: 200, description: 'Empty response' },
-    exceptions: [ApiDocExceptions.unauthorized],
+    title: { summary: 'Delete User' },
+    responses: [{ status: 200, description: 'Empty response' }, ApiDocExceptions.unauthorized],
     auth: 'bearer',
   })
   @UseGuards(JwtAuthGuard)

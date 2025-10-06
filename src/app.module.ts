@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './db';
 import { ManagersModule } from './features/managers/managers.module';
+import { LoggerModule } from '@app/logger';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ManagersModule } from './features/managers/managers.module';
     TypeOrmModule.forRootAsync(TypeOrmConfigService()),
     ArticlesModule,
     ManagersModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

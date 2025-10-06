@@ -18,6 +18,8 @@
     "@app/serializer/(.*)": "<rootDir>/../libs/shared/serializer/src/$1",
     "@app/serializer": "<rootDir>/../libs/shared/serializer/src",
     "@app/decorators/(.*)": "<rootDir>/../libs/shared/decorators/src/$1",
-    "@app/decorators": "<rootDir>/../libs/shared/decorators/src"
+    "@app/decorators": "<rootDir>/../libs/shared/decorators/src",
+    "@app/logger/(.*)": "<rootDir>/../libs/shared/logger/src/$1",
+    "@app/logger": "<rootDir>/../libs/shared/logger/src"
   }
 }
